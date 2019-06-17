@@ -8,7 +8,8 @@ val root = (project in file(".")).settings(
     "org.apache.spark" %% "spark-hive" % "2.4.3" % Provided,
     "org.apache.spark" %% "spark-mllib" % "2.4.3" % Provided,
 
-    "org.scalatest" %% "scalatest" % "3.0.5" % Test
+    "org.scalatest" %% "scalatest" % "3.0.5" % Test,
+    "com.holdenkarau" %% "spark-testing-base" % "2.4.3_0.12.0" % Test
   ),
 
   assemblyJarName in assembly := s"${name.value}-full.jar",

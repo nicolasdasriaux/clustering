@@ -1,9 +1,9 @@
 # !/usr/bin/env bash
 
 spark-submit \
---property-files spark.properties \
+--properties-file spark.properties \
 --class clustering.LocationClusteringApp \
-clusterization-full.jar \
+clustering-full.jar \
 $1 \
 $2 \
 $3

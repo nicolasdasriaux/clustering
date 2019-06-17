@@ -25,20 +25,23 @@ clusters
 
 * Copy `target/scala-2.11/clusterization-full.jar` to execution folder
 * Copy `scripts/spark.properties` to execution folder
+* Modify properties if necessary
+* Copy `scripts/clustering.sh` file
 
-* Copy `scripts/location-clustering.sh` file
+* Make it executable
+  ```
+  chmod u+x clustering.sh
+  ```
 
-```
-spark-submit \
---master yarn \
---deploy-mode cluster \
---property-files spark.properties
---class clustering.LocationClusteringApp \
-clusterization-full.jar \
-<path-to-datafile> \
-<path-to-predictions-directory> \
-<path-to-clusters-directory>
-```
+* Some environment variables might have to be set up depending on Spark Hadoop distribution and setup
+* Launch job
+
+  ```
+  ./clustering.sh \
+  <path-to-datafile> \
+  <path-to-predictions-directory> \
+  <path-to-clusters-directory>
+  ```
 
 # User Stories and Epics for Industrialization 
 
@@ -68,7 +71,7 @@ clusterization-full.jar \
   - Execution plan, shuffling, shuffle
   
 * **TO DO** Optimize 'algorithm' to improve behaviour of app
-* **TO DO** Publish as predictions and clusters as Hive tables
+* **TO DO** Publish predictions and clusters as Hive tables
 * **TO DO** Implement daily scheduling or file upload triggered scheduling
 * **TO DO** Override predictions and clusters every time the job is launched
 * **TO DO** Package application with launcher and Spark config file

@@ -67,10 +67,10 @@ object LocationClusteringJob {
       .withColumn("id", $"id".cast(LongType))
       .withColumn("latitude", coalesce($"latitude", $"coordinates.latitude").cast(DoubleType))
       .withColumn("longitude", coalesce($"longitude", $"coordinates.longitude").cast(DoubleType))
-      .withColumn("_name_id", regexp_extract($"name", """(\d+) - (.*)""", 1).cast(LongType))
-      .withColumn("_id_match", $"id" === $"_name_id")
-      .withColumn("_name_address", regexp_extract($"name", """(\d+) - (.*)""", 2))
-      .withColumn("_address_match", lower($"_name_address") === lower($"address"))
+      // .withColumn("_name_id", regexp_extract($"name", """(\d+) - (.*)""", 1).cast(LongType))
+      // .withColumn("_id_match", $"id" === $"_name_id")
+      // .withColumn("_name_address", regexp_extract($"name", """(\d+) - (.*)""", 2))
+      // .withColumn("_address_match", lower($"_name_address") === lower($"address"))
       .drop($"coordinates")
     locationsDF
   }

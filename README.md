@@ -54,7 +54,7 @@ clusters
   - **CLEAN** id: 99.0, should be 99
   - id: 99.0, name: 98 - ..., non matching, should be 98?
   - id: 149, name: null
-
+* **TODO** Migrate input file to JSON Line format for scalability
 * **TODO** Discuss with data provider to decide to either improve source data or implement cleaning layer in app 
 * **DONE** Implement cleaning layer in app
 * **DONE** Implement clustering in app

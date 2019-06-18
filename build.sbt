@@ -12,6 +12,10 @@ val root = (project in file(".")).settings(
     "com.holdenkarau" %% "spark-testing-base" % "2.4.3_0.12.0" % Test
   ),
 
+  fork in Test := true,
+  parallelExecution in Test := false,
+  javaOptions ++= Seq("-Xms512M", "-Xmx2048M", "-XX:MaxPermSize=2048M", "-XX:+CMSClassUnloadingEnabled"),
+
   assemblyJarName in assembly := s"${name.value}-full.jar",
   assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
 
